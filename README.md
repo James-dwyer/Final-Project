@@ -32,5 +32,6 @@ CS 30 Final Pong Project
   <li>Configurable paddle Speed</li>
   <li>Functional Pong</li>
   <li>Win Screen, Start Screen, Screen saver</li>
+  <li>Ball Speed Increasing after Ball Bounce</li>
   
 </ol>
