@@ -10,5 +10,11 @@
     fill(C);
    rect(x,y,xWidth,Height);
    
+   move();
+   };
+   
+   void move(){
+   y += pSpeed;
+   
    };
  };
