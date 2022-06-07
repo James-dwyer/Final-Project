@@ -15,6 +15,11 @@
    
    void move(){
    y += pSpeed;
-   
+   if(y <= height*0){
+   y = height*0;
+   };
+   if(y+Height >= height ){
+   y = height - Height;
+   };
    };
  };
