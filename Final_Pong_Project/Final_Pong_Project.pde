@@ -1,5 +1,5 @@
 ArrayList<Shape> Shapes = new ArrayList<Shape>();
-float ballXSpeed, ballYSpeed;
+float ballXSpeed = 0, ballYSpeed = 0;
 float paddleSpeedL, paddleSpeedR;
 color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 255)));
 int bIndex = 3, lIndex = 4, rIndex = 5;
@@ -7,7 +7,7 @@ int bIndex = 3, lIndex = 4, rIndex = 5;
 
 void setup() {
   fullScreen();
-
+  frameRate(100);
   smooth();
 
   Ball ball = new Ball(width/2, height/2, width/75, width/75, bColor, ballXSpeed, ballYSpeed);
