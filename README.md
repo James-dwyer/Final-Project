@@ -3,7 +3,7 @@ CS 30 Final Pong Project
 
 <h1><b>Pong Game using Class Design</b></h1>
 <h3>The Pong Program uses inheritance and intentional class design to create a Pong Game with Arraylists, key listeners, final classes ect.</h3>
-<p>In the Pong program I use "Shape" as the top of inheritance and create the x and y variables in the abstract Shape class. I then branched out from the Shape class into both the "Square" Class as well as the "Circle" Class. The "Square" class inherits the x and y variables from the Shape class while also creating the Width variable. The "Circle" Class is similar in the way that it inherits the x and y from "Shape" but it creates a Diameter variable. The Circle eventually extends to Ellipse which then goes to Ball. Which inherits and creates Variables but does not repeat creation of variables and is only declared once</p>
+<p>In the Pong program I use "Shape" as the top of inheritance and create the x and y variables in the abstract Shape class. I then branched out from the Shape class into both the "Square" Class as well as the "Circle" Class. The "Square" class inherits the x and y variables from the Shape class while also creating the Width variable. The "Circle" Class is similar in the way that it inherits the x and y from "Shape" but it creates a Diameter variable. The Circle eventually extends to Ellipse which then goes to Ball. Which inherits and creates Variables but does not repeat creation of variables and is only declared once. This is also the case when Square extends to "Rectangle" and then "Paddle"</p>
 <br></br>
 <h2><u>Interest in the Program</u></h2>
 <p>I chose to do this project on Pong because I have worked with Pong for majority of the course and I think I am comfortable with Pong and how to make the game work</p>
