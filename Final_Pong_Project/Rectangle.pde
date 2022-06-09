@@ -1,4 +1,4 @@
- private class Rectangle extends Square {
+private class Rectangle extends Square {
   float Height;
   color C;
   Rectangle(float x, float y, float xWidth, float yHeight, color C) {

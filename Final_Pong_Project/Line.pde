@@ -1,4 +1,4 @@
-final private class Line extends Shape{
+final private class Line extends Shape {
   float x2, y2;
   Line(float x, float y, float X2, float Y2) {
     super(x, y);

@@ -1,4 +1,4 @@
-abstract private class Shape{
+abstract private class Shape {
   //gobal variables
   float x, y;
 
@@ -7,8 +7,6 @@ abstract private class Shape{
   Shape(float X, float Y) {
     this.x = X;
     this.y = Y;
-
   }
- abstract public void draw();
-
+  abstract public void draw();
 };

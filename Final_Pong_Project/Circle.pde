@@ -1,4 +1,4 @@
- private class Circle extends Shape{
+private class Circle extends Shape {
   float diameter;
   color c;
 
