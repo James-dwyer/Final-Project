@@ -6,7 +6,7 @@ void starSetup() {
       float diameter = random(width/70, width/15);
       float randX = random((width/50)+diameter/2,(width - (width/50))-diameter/2);
       float randY = random(0+diameter/2, height-diameter/2);
-      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 210);
+      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 230);
       int j = i;
       while (j >= i) {
         if (randX+diameter/2 <= Star[i].x+Star[i].x && randX-diameter/2 > Star[i].x) {
@@ -18,7 +18,7 @@ void starSetup() {
         j--;
       };
 
-      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 210);
+      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 230);
       while (j >= i) {
         if (randY+diameter/2 <= Star[i].y && randY-diameter/2 >= Star[i].y) {
           randY = random(0+diameter/2, height-diameter/2);
@@ -29,7 +29,7 @@ void starSetup() {
         ;
         j--;
       };
-      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 210);
+      Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 230);
     };
     redo = true;
   };

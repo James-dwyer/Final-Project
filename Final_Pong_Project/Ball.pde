@@ -18,7 +18,8 @@ final private class Ball extends Ellipse {
     noStroke();
     fill(c);
     ellipse(x, y, diameter, yDiameter);
-
+    
+    
     move();
     bounce();
     score();

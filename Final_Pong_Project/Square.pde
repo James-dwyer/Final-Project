@@ -12,4 +12,6 @@ private class Square extends Shape {
     fill(C);
     square(x, y, xWidth);
   };
+  
+  void starDraw(){};
 };

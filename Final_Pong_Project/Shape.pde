@@ -9,4 +9,5 @@ abstract private class Shape {
     this.y = Y;
   }
   abstract public void draw();
+  abstract public void starDraw();
 };

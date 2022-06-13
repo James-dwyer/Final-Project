@@ -21,6 +21,7 @@ void setup() {
   Line lLine = new Line(width/50, height*0, width/50, height);
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
+  starSetup();
     Shapes.add(lScoreboard);
   Shapes.add(rScoreboard);
   Shapes.add(lLine);
