@@ -3,8 +3,8 @@ float ballXSpeed = 0, ballYSpeed = 0;
 float paddleSpeedL, paddleSpeedR;
 int lScore = 0, rScore = 0;
 color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 255)));
-int bIndex = 5, lIndex = 6, rIndex = 7,wIndex = 13,qIndex = 14, resIndex = 15;
-boolean lWin = false, rWin = false,redo = false;
+int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15;
+boolean lWin = false, rWin = false, redo = false;
 Ball[] Star = new Ball[5];
 
 
@@ -12,7 +12,7 @@ void setup() {
   fullScreen();
   frameRate(100);
   smooth();
- Scoreboard lScoreboard = new Scoreboard(width*1/4-(width/10)/2, height*0, width/10, height/8, 200);
+  Scoreboard lScoreboard = new Scoreboard(width*1/4-(width/10)/2, height*0, width/10, height/8, 200);
   Scoreboard rScoreboard = new Scoreboard(width*3/4-(width/10)/2, height*0, width/10, height/8, 200);
   Ball ball = new Ball(width/2, height/2, width/75, width/75, bColor, ballXSpeed, ballYSpeed);
   Paddle lPaddle = new Paddle(width/50, height/2-(height/5)/2, width/85, height/5, #FF0000, paddleSpeedL);
@@ -24,7 +24,7 @@ void setup() {
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
   starSetup();
-    Shapes.add(lScoreboard);
+  Shapes.add(lScoreboard);
   Shapes.add(rScoreboard);
   Shapes.add(lLine);
   Shapes.add(mLine);
@@ -32,26 +32,23 @@ void setup() {
   Shapes.add(ball);
   Shapes.add(lPaddle);
   Shapes.add(rPaddle);
-  
-  for( int i = 0; i < Star.length; i++){
+
+  for ( int i = 0; i < Star.length; i++) {
     Shapes.add(Star[i]);
   };
-  
+
   Shapes.add(win);
   Shapes.add(quit);
   Shapes.add(pAgain);
-
 };
 
 
 void draw() {
- if(lWin == false && rWin == false){
-   gameStart();
-   }else if (lWin == true || rWin == true){
-   winScreen();
-   };
-
-  
+  if (lWin == false && rWin == false) {
+    gameStart();
+  } else if (lWin == true || rWin == true) {
+    winScreen();
+  };
 };
 
 
@@ -59,18 +56,16 @@ void keyPressed() {
 
   if (key == 'w' || key == 'W') {
     paddleSpeedL = -5;
-  Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
-    
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+
     Shapes.set(lIndex, leftPaddle);
-    
   }
   if (key == 's' || key == 'S') {
     paddleSpeedL = 5;
-  
-   Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
-    
+
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+
     Shapes.set(lIndex, leftPaddle);
-    
   }
   if (key == CODED) {
     if (keyCode == UP) {
@@ -89,20 +84,19 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 'W') {
     paddleSpeedL = 0;
-   Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
-    
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+
     Shapes.set(lIndex, leftPaddle);
-    
+
     Shapes.set(lIndex, leftPaddle);
-    };
-  
+  };
+
   if (key == 's' || key == 'S') {
     paddleSpeedL = 0;
-    
+
     Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
-    
+
     Shapes.set(lIndex, leftPaddle);
-    
   }
 
   if (key == CODED) {
@@ -120,9 +114,9 @@ void keyReleased() {
 };
 
 void mousePressed() {
-  if(lWin == true || rWin == true){
-  if(mouseX >= Shapes.get(qIndex).x && mouseX <= Shapes.get(qIndex).x + width/5 && mouseY >= Shapes.get(qIndex).y && mouseY <= Shapes.get(qIndex).y+height/15){
-  exit();
-  };
+  if (lWin == true || rWin == true) {
+    if (mouseX >= Shapes.get(qIndex).x && mouseX <= Shapes.get(qIndex).x + width/5 && mouseY >= Shapes.get(qIndex).y && mouseY <= Shapes.get(qIndex).y+height/15) {
+      exit();
+    };
   };
 };

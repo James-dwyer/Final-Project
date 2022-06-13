@@ -8,28 +8,25 @@ final private class Ball extends Ellipse {
     while ( ballXSpeed == 0) ballXSpeed = int(random(-5, 5));
     while ( ballYSpeed == 0) ballYSpeed = int(random(-5, 5));
   };
-  
-  Ball(float X, float Y, float diameter, float yDiameter, color Color){
-  super(X,Y,diameter,yDiameter,Color);
-  
+
+  Ball(float X, float Y, float diameter, float yDiameter, color Color) {
+    super(X, Y, diameter, yDiameter, Color);
   };
 
   final public void draw() {
     noStroke();
     fill(c);
     ellipse(x, y, diameter, yDiameter);
-    
-    
+
+
     move();
     bounce();
     score();
-    
   };
-  
-  public void starDraw(){
-  fill(90);
-  ellipse(X,Y,diameter,yDiameter);
-  
+
+  public void starDraw() {
+    fill(90);
+    ellipse(X, Y, diameter, yDiameter);
   };
   private void move() {
     x += ballXSpeed;
@@ -75,7 +72,7 @@ final private class Ball extends Ellipse {
       while (ballXSpeed == 0)ballXSpeed = int(random(-5, 5));
       lScore+= 1;
     };
-    
+
     if (rScore == 3) {
       rWin = true;
     };
@@ -83,6 +80,4 @@ final private class Ball extends Ellipse {
       lWin = true;
     };
   };
-  
-  
 };

@@ -12,6 +12,6 @@ private class Circle extends Shape {
     fill(c);
     circle(x, y, diameter);
   };
-  void starDraw(){};
-
+  void starDraw() {
+  };
 };

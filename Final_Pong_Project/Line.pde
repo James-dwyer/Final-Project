@@ -10,7 +10,7 @@ final private class Line extends Shape {
     stroke(255);
     line(x, y, x2, y2);
   };
-  
-  void starDraw(){};
-  
+
+  void starDraw() {
+  };
 };
