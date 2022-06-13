@@ -13,7 +13,7 @@ final private class Paddle extends Rectangle {
     rect(x, y, xWidth, Height);
 
     move();
-    sbScore();
+ 
   };
 
   void move() {
@@ -26,9 +26,5 @@ final private class Paddle extends Rectangle {
     };
 
   };
-    private void sbScore(){
-    if(lScore == 1){
-      Height = height/8;
-    };
-    };
+    
 };
