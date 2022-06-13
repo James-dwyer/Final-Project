@@ -13,7 +13,7 @@ final private class Paddle extends Rectangle {
     rect(x, y, xWidth, Height);
 
     move();
- 
+
   };
 
   void move() {

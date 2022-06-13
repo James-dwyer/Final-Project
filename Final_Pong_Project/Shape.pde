@@ -10,4 +10,5 @@ abstract private class Shape {
   }
   abstract public void draw();
   abstract public void starDraw();
+
 };

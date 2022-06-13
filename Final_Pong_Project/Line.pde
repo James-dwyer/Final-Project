@@ -12,4 +12,5 @@ final private class Line extends Shape {
   };
   
   void starDraw(){};
+  
 };
