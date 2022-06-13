@@ -16,6 +16,7 @@ final private class Ball extends Ellipse {
 
     move();
     bounce();
+    score();
   };
   private void move() {
     x += ballXSpeed;
@@ -33,5 +34,40 @@ final private class Ball extends Ellipse {
     if (x-diameter <= Shapes.get(lIndex).x && y-diameter >= Shapes.get(lIndex).y && y+diameter <= Shapes.get(lIndex).y + height/5) {
       ballXSpeed *= -1;
     }
+  };
+  void score() {
+    if (x-diameter/2 < Shapes.get(2).x) {
+
+
+      Shapes.get(lIndex).y = height/2-height/5/2;
+      Shapes.get(rIndex).y = height/2-height/5/2;
+
+      x = width/2;
+      y = width/2;
+
+      ballYSpeed = int(random(-5, 5));
+      ballXSpeed = int(random(-5, 5));
+      while (ballYSpeed == 0)ballYSpeed = int(random(-5, 5));
+      while (ballXSpeed == 0)ballXSpeed = int(random(-5, 5));
+      rScore+= 1;
+    };
+    if (x+diameter/2 > Shapes.get(4).x) {
+
+      Shapes.get(lIndex).y = height/2-height/5/2;
+      Shapes.get(rIndex).y = height/2-height/5/2;
+      Shapes.get(bIndex).x = width/2;
+      ballYSpeed = int(random(-5, 5));
+      ballXSpeed = int(random(-5, 5));
+      while (ballYSpeed == 0)ballYSpeed = int(random(-5, 5));
+      while (ballXSpeed == 0)ballXSpeed = int(random(-5, 5));
+      lScore+= 1;
+    };
+    
+    if (rScore == 3) {
+      rWin = true;
+    };
+    if (lScore == 3) {
+      lWin = true;
+    };
   };
 };
