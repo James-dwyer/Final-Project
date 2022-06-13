@@ -3,7 +3,7 @@ float ballXSpeed = 0, ballYSpeed = 0;
 float paddleSpeedL, paddleSpeedR;
 int lScore = 0, rScore = 0;
 color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 255)));
-int bIndex = 5, lIndex = 6, rIndex = 7;
+int bIndex = 5, lIndex = 6, rIndex = 7,wIndex = 13,qIndex = 14, resIndex = 15;
 boolean lWin = false, rWin = false,redo = false;
 Ball[] Star = new Ball[5];
 
@@ -17,7 +17,9 @@ void setup() {
   Ball ball = new Ball(width/2, height/2, width/75, width/75, bColor, ballXSpeed, ballYSpeed);
   Paddle lPaddle = new Paddle(width/50, height/2-(height/5)/2, width/85, height/5, #FF0000, paddleSpeedL);
   Paddle rPaddle = new Paddle(width - (width/50), height/2-(height/5)/2, width/-85, height/5, #0000FF, paddleSpeedR);
- 
+  Rectangle win = new Rectangle(width/2-((width/2)/3), height/4, width/3, height/10, 30);
+  Rectangle quit = new Rectangle(width*3/4-width/5, height/2, width/5, height/15, 30);
+  Rectangle pAgain = new Rectangle(width/4, height/2, width/5, height/15, 30);
   Line lLine = new Line(width/50, height*0, width/50, height);
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
@@ -34,6 +36,10 @@ void setup() {
   for( int i = 0; i < Star.length; i++){
     Shapes.add(Star[i]);
   };
+  
+  Shapes.add(win);
+  Shapes.add(quit);
+  Shapes.add(pAgain);
 
 };
 
@@ -41,6 +47,8 @@ void setup() {
 void draw() {
  if(lWin == false && rWin == false){
    gameStart();
+   }else if (lWin == true || rWin == true){
+   winScreen();
    };
 
   
