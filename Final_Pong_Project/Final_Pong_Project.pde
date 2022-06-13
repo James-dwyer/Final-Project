@@ -120,4 +120,9 @@ void keyReleased() {
 };
 
 void mousePressed() {
+  if(lWin == true || rWin == true){
+  if(mouseX >= Shapes.get(qIndex).x && mouseX <= Shapes.get(qIndex).x + width/5 && mouseY >= Shapes.get(qIndex).y && mouseY <= Shapes.get(qIndex).y+height/15){
+  exit();
+  };
+  };
 };
