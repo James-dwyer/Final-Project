@@ -1,4 +1,4 @@
-Shape pause = new Shape(width/2 - (width/4)/2, height/4) {
+Rectangle pause = new Rectangle(width/2, height/4,width/2-(width*2/5)/2,height/3,255) {
   void starDraw() {
   };
 
@@ -14,8 +14,8 @@ Shape pause = new Shape(width/2 - (width/4)/2, height/4) {
     restart.draw();
     fill(ex);
     exit.draw();
-    fill(pColor);
-    rect(x, y, width*2/5, height/3);
+    fill(255);
+    rect(width/2, height/4, width*2/5, height/3);
 
     fill(0);
     textSize(25);

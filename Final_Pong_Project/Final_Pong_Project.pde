@@ -1,5 +1,9 @@
 ArrayList<Shape> Shapes = new ArrayList<Shape>();
 float ballXSpeed = 0, ballYSpeed = 0;
+
+// fix anonymous pause menu, add ball collisions stuff
+
+
 float paddleSpeedL, paddleSpeedR;
 int lScore = 0, rScore = 0;
 color res = 210, ex = 210, reset = 210;
@@ -30,7 +34,7 @@ void setup() {
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
   starSetup();
-  pause();
+  
   
   
   Shapes.add(lScoreboard);
@@ -57,7 +61,9 @@ void setup() {
 
 
 void draw() {
+  Shapes.get(pIndex).draw();
   if (lWin == false && rWin == false) {
+
     gameStart();
   } else if (lWin == true || rWin == true) {
     winScreen();
