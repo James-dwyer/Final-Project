@@ -2,9 +2,14 @@ ArrayList<Shape> Shapes = new ArrayList<Shape>();
 float ballXSpeed = 0, ballYSpeed = 0;
 float paddleSpeedL, paddleSpeedR;
 int lScore = 0, rScore = 0;
+color res = 210, ex = 210, reset = 210;
+color pColor = color(225, 225, 225, 80);
 color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 255)));
-int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15;
+int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15, pIndex = 16;
 boolean lWin = false, rWin = false, redo = false;
+Rectangle resume = new Rectangle(width/2, height/3, width/9, height/6, res);
+Rectangle restart = new Rectangle(width/2, height/3, width/9, height/6, reset);
+Rectangle exit = new Rectangle(width/2, height/3, width/9, height/6, ex);
 Ball[] Star = new Ball[5];
 
 
@@ -12,6 +17,7 @@ void setup() {
   fullScreen();
   frameRate(100);
   smooth();
+  
   Scoreboard lScoreboard = new Scoreboard(width*1/4-(width/10)/2, height*0, width/10, height/8, 200);
   Scoreboard rScoreboard = new Scoreboard(width*3/4-(width/10)/2, height*0, width/10, height/8, 200);
   Ball ball = new Ball(width/2, height/2, width/75, width/75, bColor, ballXSpeed, ballYSpeed);
@@ -24,6 +30,9 @@ void setup() {
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
   starSetup();
+  pause();
+  
+  
   Shapes.add(lScoreboard);
   Shapes.add(rScoreboard);
   Shapes.add(lLine);
@@ -40,6 +49,10 @@ void setup() {
   Shapes.add(win);
   Shapes.add(quit);
   Shapes.add(pAgain);
+  
+  
+  Shapes.add(pause);
+  
 };
 
 
