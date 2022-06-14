@@ -118,5 +118,12 @@ void mousePressed() {
     if (mouseX >= Shapes.get(qIndex).x && mouseX <= Shapes.get(qIndex).x + width/5 && mouseY >= Shapes.get(qIndex).y && mouseY <= Shapes.get(qIndex).y+height/15) {
       exit();
     };
+    if (mouseX >= Shapes.get(resIndex).x && mouseX <= Shapes.get(resIndex).x + width/5 && mouseY >= Shapes.get(resIndex).y && mouseY <= Shapes.get(resIndex).y+height/15){
+    lScore = 0;
+    rScore = 0;
+    lWin = false;
+    rWin = false;
+    Shapes.get(bIndex).y = height/2;
+    };
   };
 };
