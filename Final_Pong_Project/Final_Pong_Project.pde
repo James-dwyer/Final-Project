@@ -1,7 +1,7 @@
 ArrayList<Shape> Shapes = new ArrayList<Shape>();
 float ballXSpeed = 0, ballYSpeed = 0;
 
-// fix anonymous pause menu, add ball collisions stuff
+// fix anonymous pause menu, add start screen, fix star with w and h, fix paddle size changing(maybe), 
 
 
 float paddleSpeedL, paddleSpeedR;
