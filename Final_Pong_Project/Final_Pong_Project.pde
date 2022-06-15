@@ -61,7 +61,7 @@ void setup() {
 
 
 void draw() {
-  Shapes.get(pIndex).draw();
+  //Shapes.get(pIndex).draw();
   if (lWin == false && rWin == false) {
 
     gameStart();

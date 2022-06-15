@@ -39,7 +39,7 @@ final private class Ball extends Ellipse {
     }
     if (x+diameter/2 >= width || x-diameter/2  <= width*0) ballXSpeed *= -1;
 
-    if (x+diameter >= Shapes.get(rIndex).x + Shapes.get(rIndex).w/2 && y-diameter >= Shapes.get(rIndex).y && y+diameter <= Shapes.get(rIndex).y + Shapes.get(rIndex).h) {
+    if (x+diameter/2 >= Shapes.get(rIndex).x + Shapes.get(rIndex).w && y-diameter/2 >= Shapes.get(rIndex).y && y+yDiameter/2 <= Shapes.get(rIndex).y + Shapes.get(rIndex).h) {
       ballXSpeed *= -1;
     }    
     if (x-diameter <= Shapes.get(lIndex).x + Shapes.get(lIndex).w/2 && y-diameter >= Shapes.get(lIndex).y && y+diameter <= Shapes.get(lIndex).y +Shapes.get(lIndex).h) {
