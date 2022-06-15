@@ -1,9 +1,9 @@
 private class Square extends Shape {
   float xWidth;
   color C;
-  Square(float x, float y, float Width, color Color) {
-    super(x, y);
-    this.xWidth = Width;
+  Square(float x, float y, float w, float h,color Color) {
+    super(x, y,w,h);
+    this.xWidth = w;
     this.C = Color;
   };
 

@@ -22,6 +22,7 @@ final private class Ball extends Ellipse {
     move();
     bounce();
     score();
+    sBounce();
   };
 
   public void starDraw() {
@@ -38,19 +39,26 @@ final private class Ball extends Ellipse {
     }
     if (x+diameter/2 >= width || x-diameter/2  <= width*0) ballXSpeed *= -1;
 
-    if (x+diameter >= Shapes.get(rIndex).x && y-diameter >= Shapes.get(rIndex).y && y+diameter <= Shapes.get(rIndex).y + height/5) {
+    if (x+diameter >= Shapes.get(rIndex).x + Shapes.get(rIndex).w/2 && y-diameter >= Shapes.get(rIndex).y && y+diameter <= Shapes.get(rIndex).y + Shapes.get(rIndex).h) {
       ballXSpeed *= -1;
     }    
-    if (x-diameter <= Shapes.get(lIndex).x && y-diameter >= Shapes.get(lIndex).y && y+diameter <= Shapes.get(lIndex).y + height/5) {
+    if (x-diameter <= Shapes.get(lIndex).x + Shapes.get(lIndex).w/2 && y-diameter >= Shapes.get(lIndex).y && y+diameter <= Shapes.get(lIndex).y +Shapes.get(lIndex).h) {
       ballXSpeed *= -1;
     }
+  };
+   void sBounce() {
+    for (int i = 8; i < Shapes.size() - 4; i++) {
+      if (dist(Shapes.get(bIndex).x, (Shapes.get(bIndex).y), Shapes.get(i).x, Shapes.get(i).y) <= Shapes.get(i).w/2 + Shapes.get(i).h/2) {
+        ballXSpeed *= -1;
+      };
+    };
   };
   private void score() {
     if (x-diameter/2 < Shapes.get(2).x) {
 
 
-      Shapes.get(lIndex).y = height/2-height/5/2;
-      Shapes.get(rIndex).y = height/2-height/5/2;
+      Shapes.get(lIndex).y = height/2-Shapes.get(lIndex).h/2;
+      Shapes.get(rIndex).y = height/2-Shapes.get(rIndex).h/2;
 
       x = width/2;
       y = width/2;
@@ -63,8 +71,8 @@ final private class Ball extends Ellipse {
     };
     if (x+diameter/2 > Shapes.get(4).x) {
 
-      Shapes.get(lIndex).y = height/2-height/5/2;
-      Shapes.get(rIndex).y = height/2-height/5/2;
+      Shapes.get(lIndex).y = height/2-Shapes.get(lIndex).h/2;
+      Shapes.get(rIndex).y = height/2-Shapes.get(rIndex).h/2;
       Shapes.get(bIndex).x = width/2;
       ballYSpeed = int(random(-5, 5));
       ballXSpeed = int(random(-5, 5));

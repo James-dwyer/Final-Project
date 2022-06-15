@@ -75,26 +75,26 @@ void keyPressed() {
 
   if (key == 'w' || key == 'W') {
     paddleSpeedL = -5;
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
   }
   if (key == 's' || key == 'S') {
     paddleSpeedL = 5;
 
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
   }
   if (key == CODED) {
     if (keyCode == UP) {
       paddleSpeedR = -5;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, width/-85, height/5, #0000FF, paddleSpeedR);
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
     if (keyCode == DOWN) {
       paddleSpeedR = 5;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, width/-85, height/5, #0000FF, paddleSpeedR);
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
   };
@@ -103,7 +103,7 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 'W') {
     paddleSpeedL = 0;
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y,Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
 
@@ -113,7 +113,7 @@ void keyReleased() {
   if (key == 's' || key == 'S') {
     paddleSpeedL = 0;
 
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, width/85, height/5, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
   }
@@ -121,12 +121,12 @@ void keyReleased() {
   if (key == CODED) {
     if (keyCode == UP) {
       paddleSpeedR = 0;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, width/-85, height/5, #0000FF, paddleSpeedR);
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
     if (keyCode == DOWN) {
       paddleSpeedR = 0;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, width/-85, height/5, #0000FF, paddleSpeedR);
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
   };

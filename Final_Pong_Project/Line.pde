@@ -1,9 +1,9 @@
 final private class Line extends Shape {
   float x2, y2;
-  Line(float x, float y, float X2, float Y2) {
-    super(x, y);
-    this.x2 = X2;
-    this.y2 = Y2;
+  Line(float x, float y, float w, float h) {
+    super(x, y,w,h);
+    this.x2 = w;
+    this.y2 = h;
   };
 
   final public void draw() {

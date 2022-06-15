@@ -1,9 +1,9 @@
 private class Ellipse extends Circle {
   float yDiameter;
-  Ellipse(float x, float y, float diameter, float Diameter, color Color) {
-    super(x, y, diameter, Color);
+  Ellipse(float x, float y, float diameter, float h, color Color) {
+    super(x, y, diameter,h, Color);
 
-    this.yDiameter = Diameter;
+    this.yDiameter = h;
   };
 
 

@@ -11,7 +11,7 @@ final private class Scoreboard extends Rectangle {
     fill(0);
     textSize(33);
     textAlign(CENTER, CENTER);
-    text(str(lScore), Shapes.get(0).x, Shapes.get(0).y, width/10, height/8);
-    text(str(rScore), Shapes.get(1).x, Shapes.get(1).y, width/10, height/8);
+    text(str(lScore), Shapes.get(0).x, Shapes.get(0).y, Shapes.get(0).w, Shapes.get(0).h);
+    text(str(rScore), Shapes.get(1).x, Shapes.get(1).y, Shapes.get(1).w, Shapes.get(1).h);
   };
 };
