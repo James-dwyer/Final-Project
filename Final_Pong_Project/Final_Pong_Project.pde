@@ -89,6 +89,7 @@ void setup() {
 
 void draw() {
    if (width > height) {
+     
   if(rules == false && lRules == true && rRules == true){
   if (lWin == false && rWin == false) {
 
@@ -205,6 +206,37 @@ void mousePressed() {
       rWin = false;
       Shapes.get(bIndex).y = height/2;
     };
+  };
+  if(rules == true){
+  if (mouseX >= Shapes.get(18).x && mouseX <= Shapes.get(18).x + Shapes.get(18).w && mouseY >= Shapes.get(18).y && mouseY <= Shapes.get(18).y+Shapes.get(18).h){
+  paddleSpeedL = -3;
+  lRules = true;
+  };
+   if (mouseX >= Shapes.get(19).x && mouseX <= Shapes.get(19).x + Shapes.get(19).w && mouseY >= Shapes.get(19).y && mouseY <= Shapes.get(19).y+Shapes.get(19).h){
+  paddleSpeedL = -5;
+  lRules = true;
+  };
+   if (mouseX >= Shapes.get(20).x && mouseX <= Shapes.get(20).x + Shapes.get(20).w && mouseY >= Shapes.get(20).y && mouseY <= Shapes.get(20).y+Shapes.get(20).h){
+  paddleSpeedL = -7;
+  lRules = true;
+  };
+   if (mouseX >= Shapes.get(21).x && mouseX <= Shapes.get(21).x + Shapes.get(21).w && mouseY >= Shapes.get(21).y && mouseY <= Shapes.get(21).y+Shapes.get(21).h){
+  paddleSpeedR = -3;
+  rRules = true;
+  };
+   if (mouseX >= Shapes.get(22).x && mouseX <= Shapes.get(22).x + Shapes.get(22).w && mouseY >= Shapes.get(22).y && mouseY <= Shapes.get(22).y+Shapes.get(22).h){
+  paddleSpeedR = -5;
+  rRules = true;
+  };
+   if (mouseX >= Shapes.get(23).x && mouseX <= Shapes.get(23).x + Shapes.get(23).w && mouseY >= Shapes.get(23).y && mouseY <= Shapes.get(23).y+Shapes.get(23).h){
+  paddleSpeedR = -7;
+  rRules = true;
+  };
+  if(lRules == true && rRules == true){
+    if(mouseX >= Shapes.get(25).x && mouseX <= Shapes.get(25).x + Shapes.get(25).w && mouseY >= Shapes.get(25).y && mouseY <= Shapes.get(25).y+Shapes.get(25).h){
+      rules = false;
+    };
+  };
   };
 
 };

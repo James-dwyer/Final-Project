@@ -65,7 +65,7 @@ final private class Ball extends Ellipse {
   };
     
    void sBounce() {
-    for (int i = 8; i < Shapes.size() - 12; i++) {
+    for (int i = 8; i < Shapes.size() - 15; i++) {
       if (dist(Shapes.get(bIndex).x, (Shapes.get(bIndex).y), Shapes.get(i).x, Shapes.get(i).y) <= Shapes.get(i).w/2 + Shapes.get(i).h/2) {
         ballXSpeed *= -1;
       };
