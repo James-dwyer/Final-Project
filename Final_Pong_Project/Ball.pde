@@ -17,7 +17,7 @@ final private class Ball extends Ellipse {
     noStroke();
     fill(c);
     ellipse(x, y, diameter, yDiameter);
-
+  
 
     move();
     bounce();
@@ -41,13 +41,31 @@ final private class Ball extends Ellipse {
 
     if (x+diameter/2 >= Shapes.get(rIndex).x + Shapes.get(rIndex).w && y-diameter/2 >= Shapes.get(rIndex).y && y+yDiameter/2 <= Shapes.get(rIndex).y + Shapes.get(rIndex).h) {
       ballXSpeed *= -1;
+      ballXSpeed -= 1;
     }    
     if (x-diameter/2 <= Shapes.get(lIndex).x + Shapes.get(lIndex).w && y-diameter/2 >= Shapes.get(lIndex).y && y+diameter/2 <= Shapes.get(lIndex).y +Shapes.get(lIndex).h) {
       ballXSpeed *= -1;
-    }
+      ballXSpeed += 1;
+    };
+     if (ballXSpeed <= -19) {
+      if (x+diameter/2 >= Shapes.get(rIndex).x + Shapes.get(rIndex).w && y-diameter/2 >= Shapes.get(rIndex).y && y+yDiameter/2 <= Shapes.get(rIndex).y + Shapes.get(rIndex).h) {
+        ballXSpeed *= -1;
+        ballXSpeed = -19;
+        ballYSpeed = int(random(-6, 6));
+      };
+    };
+    if (ballXSpeed >= 19) {
+      if (x-diameter/2 <= Shapes.get(lIndex).x + Shapes.get(lIndex).w && y-diameter/2 >= Shapes.get(lIndex).y && y+diameter/2 <= Shapes.get(lIndex).y +Shapes.get(lIndex).h) {
+        ballXSpeed *= -1;
+        ballXSpeed = 19;
+        ballYSpeed = int(random(-6, 6));
+    
   };
+    };
+  };
+    
    void sBounce() {
-    for (int i = 8; i < Shapes.size() - 4; i++) {
+    for (int i = 8; i < Shapes.size() - 12; i++) {
       if (dist(Shapes.get(bIndex).x, (Shapes.get(bIndex).y), Shapes.get(i).x, Shapes.get(i).y) <= Shapes.get(i).w/2 + Shapes.get(i).h/2) {
         ballXSpeed *= -1;
       };

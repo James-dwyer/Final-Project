@@ -4,14 +4,14 @@ void starSetup() {
     for (int i = 0; i < Star.length; i++) {
 
       float diameter = random(width/70, width/15);
-      float randX = random((width/50)+diameter/2, (width - (width/50))-diameter/2);
+      float randX = random((width/50)+diameter/2,(width - (width/50))-diameter/2);
       float randY = random(0+diameter/2, height-diameter/2);
       Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 230);
       int j = i;
       while (j >= i) {
-        if (randX+diameter/2 <= Star[i].x+Star[i].x && randX-diameter/2 > Star[i].x) {
+        if (randX+diameter/2 <= Star[i].x+Star[i].x && randX-diameter/2 > Star[i].x-Star[i].w/2) {
           randX = random(0+diameter/2, width-diameter/2);
-          if (Star[i].x <= randX+diameter/2 && Star[i].x <= randX-diameter/2) {
+          if (Star[i].x+Star[i].w <= randX+diameter/2 && Star[i].x-Star[i].w <= randX-diameter/2) {
             randX = random(0+diameter/2, height-diameter/2);
           };
         };
@@ -20,9 +20,9 @@ void starSetup() {
 
       Star[i] = new Ball(randX, randY, diameter/2, diameter/2, 230);
       while (j >= i) {
-        if (randY+diameter/2 <= Star[i].y && randY-diameter/2 >= Star[i].y) {
+        if (randY+diameter/2 <= Star[i].y+Star[i].h/2 && randY-diameter/2 >= Star[i].y-Star[i].h/2) {
           randY = random(0+diameter/2, height-diameter/2);
-          if (Star[i].y <= randY+diameter/2 && Star[i].y<= randY-diameter/2) {
+          if (Star[i].y+Star[i].h <= randY+diameter/2 && Star[i].y-Star[i].h <= randY-diameter/2) {
             randY = random(0+diameter/2, height-diameter/2);
           };
         }
@@ -35,8 +35,8 @@ void starSetup() {
   };
   for (int i=0; i<Star.length; i++) {
     for (int X = Star.length-1; X > i; X--) {
-      if (Star[i].x < Star[X].x && Star[i].x > Star[X].x)redo = false;
-      if (Star[i].y > Star[X].y && Star[i].y < Star[X].y)redo = false;
+      if (Star[i].x+Star[i].w/2 < Star[X].x+Star[X].w/2 && Star[i].x-Star[i].w/2 > Star[X].x-Star[X].w/2)redo = false;
+      if (Star[i].y-Star[i].h/2 > Star[X].y-Star[X].h/2 && Star[i].y+Star[i].h/2 < Star[X].h+Star[X].h/2)redo = false;
     };
   };
 };
