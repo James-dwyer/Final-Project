@@ -41,9 +41,9 @@ private class Rectangle extends Square {
 }else   {Rectangle lRule1 = new Rectangle(width/10, height*4/10, width/4, width/20, #0000FF);
   Shapes.set(18,lRule1);};
 if (mouseX >= Shapes.get(19).x && mouseX <= Shapes.get(19).x + Shapes.get(19).w && mouseY >= Shapes.get(19).y && mouseY <= Shapes.get(19).y+Shapes.get(19).h){
- Rectangle lRule2 = new Rectangle(width/10, height*5/10, width/4, width/20, #FF7000);
+ Rectangle lRule2 = new Rectangle(width/10, height*5/10, width/4, width/20, #FF7030);
   Shapes.set(19,lRule2);
-}else   {Rectangle lRule2 = new Rectangle(width/10, height*5/10, width/4, width/20, #FF7030);
+}else   {Rectangle lRule2 = new Rectangle(width/10, height*5/10, width/4, width/20, #FF7000);
   Shapes.set(19,lRule2);};
      if (mouseX >= Shapes.get(20).x && mouseX <= Shapes.get(20).x + Shapes.get(20).w && mouseY >= Shapes.get(20).y && mouseY <= Shapes.get(20).y+Shapes.get(20).h){
 Rectangle lRule3 = new Rectangle(width/10, height*6/10, width/4, width/20, #FF0030);
