@@ -11,6 +11,7 @@ color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 2
 int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15, pIndex = 27;
 boolean rules = true, lRules = false, rRules = false;
 boolean lWin = false, rWin = false, redo = false, instructions = false, rBool = false;
+boolean lSlow = false,lReg = false,lFast = false,rSlow = false,rReg = false,rFast = false;
 Rectangle resume = new Rectangle(width/2, height/3, width/9, height/6, res);
 Rectangle restart = new Rectangle(width/2, height/3, width/9, height/6, reset);
 Rectangle exit = new Rectangle(width/2, height/3, width/9, height/6, ex);
@@ -118,13 +119,20 @@ void keyPressed() {
     };
   };
   if (key == 'w' || key == 'W') {
-    paddleSpeedL = -5;
+    if(lSlow == true){paddleSpeedL = -3;}
+    else if(lReg == true){paddleSpeedL = -5;}
+    else if(lFast == true){paddleSpeedL = -7;};
+    
     Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
   }
   if (key == 's' || key == 'S') {
-    paddleSpeedL = 5;
+  
+    if(lSlow == true){paddleSpeedL = 3;}
+    else if(lReg == true){paddleSpeedL = 5;}
+    else if(lFast == true){paddleSpeedL = 7;};
+
 
     Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
@@ -132,12 +140,16 @@ void keyPressed() {
   }
   if (key == CODED) {
     if (keyCode == UP) {
-      paddleSpeedR = -5;
+     if(rSlow == true){paddleSpeedR = -3;}
+    else if(rReg == true){paddleSpeedR = -5;}
+    else if(rFast == true){paddleSpeedR = -7;};
       Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
     if (keyCode == DOWN) {
-      paddleSpeedR = 5;
+     if(rSlow == true){paddleSpeedR = 3;}
+    else if(rReg == true){paddleSpeedR = 5;}
+    else if(rFast == true){paddleSpeedR = 7;};
       Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
       Shapes.set(rIndex, rightPaddle);
     };
@@ -146,31 +158,31 @@ void keyPressed() {
 
 void keyReleased() {
   if (key == 'w' || key == 'W') {
-    paddleSpeedL = 0;
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
+   
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, 0);
 
     Shapes.set(lIndex, leftPaddle);
 
-    Shapes.set(lIndex, leftPaddle);
+    
   };
 
   if (key == 's' || key == 'S') {
-    paddleSpeedL = 0;
+    
 
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, 0);
 
     Shapes.set(lIndex, leftPaddle);
   }
 
   if (key == CODED) {
     if (keyCode == UP) {
-      paddleSpeedR = 0;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
+    
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, 0);
       Shapes.set(rIndex, rightPaddle);
     };
     if (keyCode == DOWN) {
-      paddleSpeedR = 0;
-      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, paddleSpeedR);
+ 
+      Paddle rightPaddle = new Paddle(Shapes.get(rIndex).x, Shapes.get(rIndex).y, Shapes.get(rIndex).w, Shapes.get(rIndex).h, #0000FF, 0);
       Shapes.set(rIndex, rightPaddle);
     };
   };
@@ -211,26 +223,44 @@ void mousePressed() {
   if (mouseX >= Shapes.get(18).x && mouseX <= Shapes.get(18).x + Shapes.get(18).w && mouseY >= Shapes.get(18).y && mouseY <= Shapes.get(18).y+Shapes.get(18).h){
   paddleSpeedL = -3;
   lRules = true;
+  lSlow = true;
+  lReg = false;
+  lFast = false;
   };
    if (mouseX >= Shapes.get(19).x && mouseX <= Shapes.get(19).x + Shapes.get(19).w && mouseY >= Shapes.get(19).y && mouseY <= Shapes.get(19).y+Shapes.get(19).h){
   paddleSpeedL = -5;
   lRules = true;
+  lSlow = false;
+  lReg = true;
+  lFast = false;
   };
    if (mouseX >= Shapes.get(20).x && mouseX <= Shapes.get(20).x + Shapes.get(20).w && mouseY >= Shapes.get(20).y && mouseY <= Shapes.get(20).y+Shapes.get(20).h){
   paddleSpeedL = -7;
   lRules = true;
+  lSlow = false;
+  lReg = false;
+  lFast = true;
   };
    if (mouseX >= Shapes.get(21).x && mouseX <= Shapes.get(21).x + Shapes.get(21).w && mouseY >= Shapes.get(21).y && mouseY <= Shapes.get(21).y+Shapes.get(21).h){
   paddleSpeedR = -3;
   rRules = true;
+  rSlow = true;
+  rReg = false;
+  rFast = false;
   };
    if (mouseX >= Shapes.get(22).x && mouseX <= Shapes.get(22).x + Shapes.get(22).w && mouseY >= Shapes.get(22).y && mouseY <= Shapes.get(22).y+Shapes.get(22).h){
   paddleSpeedR = -5;
   rRules = true;
+   rSlow = false;
+  rReg = true;
+  rFast = false;
   };
    if (mouseX >= Shapes.get(23).x && mouseX <= Shapes.get(23).x + Shapes.get(23).w && mouseY >= Shapes.get(23).y && mouseY <= Shapes.get(23).y+Shapes.get(23).h){
   paddleSpeedR = -7;
   rRules = true;
+   rSlow = false;
+  rReg = false;
+  rFast = true;
   };
   if(lRules == true && rRules == true){
     if(mouseX >= Shapes.get(25).x && mouseX <= Shapes.get(25).x + Shapes.get(25).w && mouseY >= Shapes.get(25).y && mouseY <= Shapes.get(25).y+Shapes.get(25).h){
