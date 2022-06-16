@@ -11,7 +11,7 @@ color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 2
 int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15, pIndex = 27;
 boolean rules = true, lRules = false, rRules = false;
 boolean lWin = false, rWin = false, redo = false, instructions = false, rBool = false;
-boolean lSlow = false,lReg = false,lFast = false,rSlow = false,rReg = false,rFast = false;
+boolean lSlow = false,lReg = false,lFast = false,rSlow = false,rReg = false,rFast = false,screenSaver = false;
 Rectangle resume = new Rectangle(width/2, height/3, width/9, height/6, res);
 Rectangle restart = new Rectangle(width/2, height/3, width/9, height/6, reset);
 Rectangle exit = new Rectangle(width/2, height/3, width/9, height/6, ex);
@@ -266,6 +266,12 @@ void mousePressed() {
     if(mouseX >= Shapes.get(25).x && mouseX <= Shapes.get(25).x + Shapes.get(25).w && mouseY >= Shapes.get(25).y && mouseY <= Shapes.get(25).y+Shapes.get(25).h){
       rules = false;
     };
+  };
+  if (mouseX >= Shapes.get(26).x && mouseX <= Shapes.get(26).x + Shapes.get(26).w && mouseY >= Shapes.get(26).y && mouseY <= Shapes.get(26).y+Shapes.get(26).h){
+      rules = false;
+      lRules = true;
+      rRules = true;
+      screenSaver = true;
   };
   };
 

@@ -11,7 +11,9 @@ final private class Paddle extends Rectangle {
   final public void draw() {
     fill(C);
     rect(x, y, xWidth, Height);
-
+    if(screenSaver == true){
+    y = Shapes.get(bIndex).y - h/2;
+    };
     move();
     sBScore();
   };
