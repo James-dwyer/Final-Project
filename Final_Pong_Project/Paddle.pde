@@ -16,7 +16,7 @@ final private class Paddle extends Rectangle {
     sBScore();
   };
 
-  void move() {
+  private void move() {
     y += pSpeed;
     if (y <= height*0) {
       y = height*0;
@@ -25,7 +25,7 @@ final private class Paddle extends Rectangle {
       y = height - Height;
     };
   };
-   void sBScore() {
+   private void sBScore() {
     if (lScore == 0) {
       Shapes.get(lIndex).h = height/5;
     };

@@ -1,4 +1,5 @@
-Rectangle pause = new Rectangle(width/2, height/4,width/2-(width*2/5)/2,height/3,255) {
+Rectangle pause = new Rectangle(width*0, height*0, width, height, pColor) {
+
   void starDraw() {
   };
 
@@ -14,16 +15,16 @@ Rectangle pause = new Rectangle(width/2, height/4,width/2-(width*2/5)/2,height/3
     restart.draw();
     fill(ex);
     exit.draw();
-    fill(255);
-    rect(width/2, height/4, width*2/5, height/3);
+    fill(C);
+    rect(x, y, w, h);
 
     fill(0);
     textSize(25);
-    text(resString, resume.x, resume.y, width/12, height/9);
-    text(resetString, restart.x, restart.y, width/12, height/9);
-    text(exitString, exit.x, exit.y, width/12, height/9);
+    text(resString, resume.x, resume.y, resume.w, resume.h);
+    text(resetString, restart.x, restart.y, restart.w, restart.h);
+    text(exitString, exit.x, exit.y, exit.w, exit.h);
     textSize(50);
     fill(255);
-    text("Pause", resume.x - width/12, resume.y-height/9, resume.x+width/12*2, height/9);
+    text("Pause", resume.x - resume.w, resume.y-resume.h, resume.x+resume.w*2, resume.h);
   };
 };

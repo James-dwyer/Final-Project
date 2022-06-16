@@ -10,7 +10,7 @@ color res = 210, ex = 210, reset = 210;
 color pColor = color(225, 225, 225, 80);
 color bColor = color((int(random(0, 255))), int(random(0, 255)), int(random(0, 255)));
 int bIndex = 5, lIndex = 6, rIndex = 7, wIndex = 13, qIndex = 14, resIndex = 15, pIndex = 16;
-boolean lWin = false, rWin = false, redo = false;
+boolean lWin = false, rWin = false, redo = false, instructions = false, rBool = false;
 Rectangle resume = new Rectangle(width/2, height/3, width/9, height/6, res);
 Rectangle restart = new Rectangle(width/2, height/3, width/9, height/6, reset);
 Rectangle exit = new Rectangle(width/2, height/3, width/9, height/6, ex);
@@ -21,7 +21,8 @@ void setup() {
   fullScreen();
   frameRate(100);
   smooth();
-  
+
+
   Scoreboard lScoreboard = new Scoreboard(width*1/4-(width/10)/2, height*0, width/10, height/8, 200);
   Scoreboard rScoreboard = new Scoreboard(width*3/4-(width/10)/2, height*0, width/10, height/8, 200);
   Ball ball = new Ball(width/2, height/2, width/75, width/75, bColor, ballXSpeed, ballYSpeed);
@@ -34,9 +35,9 @@ void setup() {
   Line mLine = new Line(width/2, height*0, width/2, height);
   Line rLine = new Line(width- (width/50), height*0, width - (width/50), height);
   starSetup();
-  
-  
-  
+
+
+
   Shapes.add(lScoreboard);
   Shapes.add(rScoreboard);
   Shapes.add(lLine);
@@ -53,10 +54,9 @@ void setup() {
   Shapes.add(win);
   Shapes.add(quit);
   Shapes.add(pAgain);
-  
-  
+
+
   Shapes.add(pause);
-  
 };
 
 
@@ -72,7 +72,15 @@ void draw() {
 
 
 void keyPressed() {
+  if (
 
+    key == 'i' || key == 'I') {
+    if (instructions == false) { 
+      instructions = true;
+    } else if (instructions == true) {
+      instructions = false;
+    };
+  };
   if (key == 'w' || key == 'W') {
     paddleSpeedL = -5;
     Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
@@ -103,7 +111,7 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 'W') {
     paddleSpeedL = 0;
-    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y,Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
+    Paddle leftPaddle = new Paddle(Shapes.get(lIndex).x, Shapes.get(lIndex).y, Shapes.get(lIndex).w, Shapes.get(lIndex).h, #FF0000, paddleSpeedL);
 
     Shapes.set(lIndex, leftPaddle);
 
@@ -133,16 +141,29 @@ void keyReleased() {
 };
 
 void mousePressed() {
+  if (instructions == true) {
+    if (mouseX >= resume.x && mouseX <= resume.x + resume.w && mouseY >= resume.y && mouseY <= resume.y+resume.h) {
+      instructions = false;
+    };
+    if (mouseX >= restart.x && mouseX <= restart.x+restart.w && mouseY >= restart.y && mouseY <= restart.y+restart.h) {
+      rBool = true;
+      reset();
+      instructions = false;
+    };
+    if (mouseX >= exit.x && mouseX <= exit.x+exit.w && mouseY >= exit.y && mouseY <= exit.y+exit.h) {
+      exit();
+    };
   if (lWin == true || rWin == true) {
     if (mouseX >= Shapes.get(qIndex).x && mouseX <= Shapes.get(qIndex).x + width/5 && mouseY >= Shapes.get(qIndex).y && mouseY <= Shapes.get(qIndex).y+height/15) {
       exit();
     };
-    if (mouseX >= Shapes.get(resIndex).x && mouseX <= Shapes.get(resIndex).x + width/5 && mouseY >= Shapes.get(resIndex).y && mouseY <= Shapes.get(resIndex).y+height/15){
-    lScore = 0;
-    rScore = 0;
-    lWin = false;
-    rWin = false;
-    Shapes.get(bIndex).y = height/2;
+    if (mouseX >= Shapes.get(resIndex).x && mouseX <= Shapes.get(resIndex).x + width/5 && mouseY >= Shapes.get(resIndex).y && mouseY <= Shapes.get(resIndex).y+height/15) {
+      lScore = 0;
+      rScore = 0;
+      lWin = false;
+      rWin = false;
+      Shapes.get(bIndex).y = height/2;
     };
   };
+};
 };
